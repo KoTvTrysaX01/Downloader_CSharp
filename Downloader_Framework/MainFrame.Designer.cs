@@ -84,7 +84,7 @@ namespace Downloader_Framework
             this.pnl_DownloadProc = new System.Windows.Forms.Panel();
             this.btn_StartDownload = new Downloader_Framework.MyButton();
             lbl_ProgPer = new System.Windows.Forms.Label();
-            this.lbl_DownloadFile = new System.Windows.Forms.Label();
+            lbl_DownloadFile = new System.Windows.Forms.Label();
             progbar_DownloadPrc = new System.Windows.Forms.ProgressBar();
             this.pnl_DestFolder = new System.Windows.Forms.Panel();
             this.lbl_TryInstall = new System.Windows.Forms.Label();
@@ -123,7 +123,7 @@ namespace Downloader_Framework
             // 
             // tablepnl_TopPanel
             // 
-            this.tablepnl_TopPanel.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.tablepnl_TopPanel.BackColor = color4;
             this.tablepnl_TopPanel.ColumnCount = 4;
             this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.80428F));
             this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.19572F));
@@ -147,7 +147,7 @@ namespace Downloader_Framework
             // 
             this.lbl_Author.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Author.AutoSize = true;
-            this.lbl_Author.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbl_Author.BackColor = color3;
             this.lbl_Author.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_Author.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_Author.Font = new System.Drawing.Font("Arial Narrow", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -165,7 +165,7 @@ namespace Downloader_Framework
             // 
             this.lbl_PrgName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_PrgName.AutoSize = true;
-            this.lbl_PrgName.BackColor = System.Drawing.Color.Navy;
+            this.lbl_PrgName.BackColor = color6;
             this.lbl_PrgName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_PrgName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbl_PrgName.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -192,7 +192,7 @@ namespace Downloader_Framework
             // btn_CheckCon
             // 
             this.btn_CheckCon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_CheckCon.BackColor = System.Drawing.Color.MediumBlue;
+            this.btn_CheckCon.BackColor = color5;
             this.btn_CheckCon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CheckCon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_CheckCon.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -209,7 +209,7 @@ namespace Downloader_Framework
             // 
             // tablepnl_LeftPanel
             // 
-            this.tablepnl_LeftPanel.BackColor = System.Drawing.Color.Navy;
+            this.tablepnl_LeftPanel.BackColor = color6;
             this.tablepnl_LeftPanel.ColumnCount = 1;
             this.tablepnl_LeftPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tablepnl_LeftPanel.Controls.Add(this.btn_Profiles, 0, 3);
@@ -297,7 +297,7 @@ namespace Downloader_Framework
             // 
             // tablepnl_Console
             // 
-            this.tablepnl_Console.BackColor = System.Drawing.Color.RoyalBlue;
+            this.tablepnl_Console.BackColor = color4;
             this.tablepnl_Console.ColumnCount = 1;
             this.tablepnl_Console.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tablepnl_Console.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -329,7 +329,7 @@ namespace Downloader_Framework
             // 
             lbl_CurApps.Anchor = System.Windows.Forms.AnchorStyles.None;
             lbl_CurApps.AutoSize = true;
-            lbl_CurApps.BackColor = System.Drawing.Color.DarkBlue;
+            lbl_CurApps.BackColor = color6;
             lbl_CurApps.Font = new System.Drawing.Font("Arial", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             lbl_CurApps.ForeColor = System.Drawing.Color.White;
             lbl_CurApps.Location = new System.Drawing.Point(0, 1);
@@ -690,7 +690,7 @@ namespace Downloader_Framework
             this.pnl_DownloadProc.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnl_DownloadProc.Controls.Add(this.btn_StartDownload);
             this.pnl_DownloadProc.Controls.Add(lbl_ProgPer);
-            this.pnl_DownloadProc.Controls.Add(this.lbl_DownloadFile);
+            this.pnl_DownloadProc.Controls.Add(lbl_DownloadFile);
             this.pnl_DownloadProc.Controls.Add(progbar_DownloadPrc);
             this.pnl_DownloadProc.Location = new System.Drawing.Point(13, 478);
             this.pnl_DownloadProc.Name = "pnl_DownloadProc";
@@ -731,14 +731,14 @@ namespace Downloader_Framework
             // 
             // lbl_DownloadFile
             // 
-            this.lbl_DownloadFile.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lbl_DownloadFile.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_DownloadFile.Location = new System.Drawing.Point(250, 10);
-            this.lbl_DownloadFile.Name = "lbl_DownloadFile";
-            this.lbl_DownloadFile.Size = new System.Drawing.Size(450, 36);
-            this.lbl_DownloadFile.TabIndex = 8;
-            this.lbl_DownloadFile.Text = "Now downloading: \r\n";
-            this.lbl_DownloadFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lbl_DownloadFile.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            lbl_DownloadFile.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lbl_DownloadFile.Location = new System.Drawing.Point(250, 10);
+            lbl_DownloadFile.Name = "lbl_DownloadFile";
+            lbl_DownloadFile.Size = new System.Drawing.Size(450, 36);
+            lbl_DownloadFile.TabIndex = 8;
+            lbl_DownloadFile.Text = "Now downloading: \r\n";
+            lbl_DownloadFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // progbar_DownloadPrc
             // 
@@ -881,7 +881,7 @@ namespace Downloader_Framework
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = color2;
             this.ClientSize = new System.Drawing.Size(1284, 811);
             this.Controls.Add(this.tabpage_Apps);
             this.Controls.Add(this.tabpage_Tools);
@@ -895,6 +895,7 @@ namespace Downloader_Framework
             this.Name = "MainFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Downloader";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.FormClosing += MainFrame_FormClosing;
             this.tablepnl_TopPanel.ResumeLayout(false);
             this.tablepnl_TopPanel.PerformLayout();
@@ -985,8 +986,8 @@ namespace Downloader_Framework
         private MyButton btn_BrowseFolder;
         private Label lbl_SelectedApps;
         private Label lbl_TryInstall;
-        private Label lbl_DownloadFile;
         private MyButton btn_StartDownload;
+        public static Label lbl_DownloadFile;
         public static Label lbl_CurApps;
         public static Label lbl_ImageStatus;
         public static System.Windows.Forms.ProgressBar progbar_DownloadPrc;

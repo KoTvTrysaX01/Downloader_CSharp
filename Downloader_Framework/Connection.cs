@@ -17,33 +17,54 @@ namespace Downloader_Framework
 {
     public class Connection
     {
+        static string userName = Environment.UserName;
+        static string database = $@"C:\Users\{userName}\Desktop\Downloader_files\Downloader_DB.db";
+        static string profilesJSON = $@"C:\Users\{userName}\Desktop\Downloader_files\ProfilesJSON.txt";
+
         public List<AppToDownload> ReadTable()
         {
-            List<AppToDownload> listApps = new List<AppToDownload>();
-            string source = "Data source = 'C:\\Users\\elshi\\Desktop\\Downloader_DB.db'";
-
-            using (var conn = new SqliteConnection(source))
+            try
             {
-                conn.Open();
-                using (SqliteCommand cmd = new SqliteCommand("Select * from AppToDownload", conn))
+                if(File.Exists(database))
                 {
-                    cmd.Connection = conn;
-                    using (SqliteDataReader reader = cmd.ExecuteReader())
+                    List<AppToDownload> listApps = new List<AppToDownload>();
+                    string source = $"Data source = {database}";
+
+                    using (SqliteConnection connection = new SqliteConnection(source))
                     {
-                        while (reader.Read())
+                        connection.Open();
+                        using (SqliteCommand command = new SqliteCommand("Select * from AppToDownload", connection))
                         {
-                            AppToDownload app = new AppToDownload(
-                                reader["AppName"].ToString(),
-                                reader["FileName"].ToString(),
-                                reader["CommandLine"].ToString(),
-                                reader["Section"].ToString()
-                                );
-                            listApps.Add(app);
+                            command.Connection = connection;
+                            using (SqliteDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    AppToDownload app = new AppToDownload(
+                                        reader["AppName"].ToString(),
+                                        reader["FileName"].ToString(),
+                                        reader["CommandLine"].ToString(),
+                                        reader["Section"].ToString()
+                                        );
+                                    listApps.Add(app);
+                                }
+                                return listApps;
+                            }
                         }
-                        return listApps;
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Database is unreachable.");
+                    return null;
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Failed connection to the database.");
+                return null;
+            }
+            
         }
 
         public bool PingHost()
@@ -53,17 +74,14 @@ namespace Downloader_Framework
                 using (var client = new TcpClient())
                 {
                     var result = client.BeginConnect("79.112.50.56", 22, null, null);
-                    var success = result.AsyncWaitHandle.WaitOne(5000);
+                    var success = result.AsyncWaitHandle.WaitOne(TimeSpan.FromSeconds(10));
                     client.EndConnect(result);
-
-
                     MainFrame.lbl_ImageStatus.Invoke(new MethodInvoker(delegate
                     {
                         MainFrame.lbl_ImageStatus.Image = new Bitmap(Properties.Resources.happy, new Size(50, 50));
                         MainFrame.AppendTextToConsole("Successful connection.");
                     }));
                     ;
-
                     return true;
                 }
             }
@@ -88,6 +106,12 @@ namespace Downloader_Framework
                 string Password = "123";
                 string RemotePath = "Files/";
 
+                MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
+                {
+                    MainFrame.AppendTextToConsole("----------------------------------------------------------");
+                    MainFrame.AppendTextToConsole("Starting session.");
+                }));
+
                 foreach (AppToDownload app in listApps)
                 {
                     string SourceFilePath = SourcePath + "\\" + app.fileName;
@@ -95,6 +119,11 @@ namespace Downloader_Framework
                     using (var client = new SftpClient(Host, Port, Username, Password))
                     {
                         client.Connect();
+
+                        MainFrame.lbl_DownloadFile.Invoke(new MethodInvoker(delegate
+                        {
+                            MainFrame.lbl_DownloadFile.Text = $"Now downloading: {app.appName}";
+                        }));
                         string RemoteFilePath = RemotePath + app.fileName;
                         SftpFileAttributes attrs = client.GetAttributes(RemoteFilePath);
                         // Set progress bar maximum on foreground thread
@@ -104,15 +133,34 @@ namespace Downloader_Framework
                         // Download with progress callback
                         client.DownloadFile(RemoteFilePath, stream, DownloadProgresBar);
                     }
-                    if (tryInstall && app.commandLine != null)
+                    if (tryInstall)
                     {
-                        InstallApps(SourceFilePath, app.commandLine);
+                        if(app.commandLine == null)
+                        {
+                            MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
+                            {
+                                MainFrame.AppendTextToConsole($"{app.fileName} cannot be installed.");
+                            }));
+                        }
+                        else
+                        {
+                            InstallApps(SourceFilePath, app);
+                        }
                     }
                 }
+                MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
+                {
+                    MainFrame.AppendTextToConsole("Session is finished.");
+                    MainFrame.AppendTextToConsole("----------------------------------------------------------");
+                }));
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+                MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
+                {
+                    MainFrame.AppendTextToConsole($"Failed to connect.");
+                }));
             }
         }
 
@@ -127,48 +175,79 @@ namespace Downloader_Framework
                 });
         }
 
-        public void InstallApps(string filePath, string fileCommand)
+        public void InstallApps(string filePath, AppToDownload app)
         {
             try
             {
                 Process process = new Process();
                 process.StartInfo.FileName = filePath;
-                process.StartInfo.Arguments = fileCommand;
+                process.StartInfo.Arguments = app.commandLine;
                 process.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
+                {
+                    MainFrame.AppendTextToConsole($"Now installing {app.appName}.");
+                }));
                 process.Start();
                 process.WaitForExit();
+                MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
+                {
+                    MainFrame.AppendTextToConsole($"Finished installing {app.appName}.");
+                }));
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
+                {
+                    MainFrame.AppendTextToConsole($"Failed to install {app.appName}");
+                }));
             }
         }
 
-        public List<UsersProfile> ReadJSONFile()
+        public List<PorfilePanel> ReadJSONFile()
         {
-            List<Profile> listProfiles = JsonConvert.DeserializeObject<List<Profile>>(File.ReadAllText("C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader\\Downloader\\json.txt"));
-            List<UsersProfile> listPanels = new List<UsersProfile>();
-            if (listProfiles != null)
+            try
             {
-                foreach (Profile p in listProfiles)
+                List<PorfilePanel> listPanels = new List<PorfilePanel>();
+                if (File.Exists(profilesJSON))
                 {
-                    if (p != null) ;
-                    listPanels.Add(new UsersProfile(p.name, p.apps));
+                    List<Profile> listProfiles = JsonConvert.DeserializeObject<List<Profile>>(File.ReadAllText(profilesJSON));
+                    if (listProfiles != null)
+                    {
+                        foreach (Profile p in listProfiles)
+                        {
+                            if (p != null) ;
+                            listPanels.Add(new PorfilePanel(p.name, p.apps));
+                        }
+                    }
+                    return listPanels;
+                }
+                else
+                {
+                    using (StreamWriter writetext = new StreamWriter(profilesJSON))
+                    {
+                        writetext.WriteLine("[]");
+                        return listPanels;
+                    }
                 }
             }
-            return listPanels;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
         }
-
 
         public void WriteJSONFile()
         {
             List<Profile> listProfiles = new List<Profile>();
             List<AppToDownload> listApps = null;
 
-            foreach (UsersProfile panel in MainFrame.list_UsersProfiles)
+            foreach (PorfilePanel panel in MainFrame.list_UsersProfiles)
             {
                 if (panel != null)
                     listApps = new List<AppToDownload>();
+
                 foreach (AppToDownload app in panel.list_ProfileApps)
                 {
                     var a = (AppToDownload)app.Clone();
@@ -178,8 +257,7 @@ namespace Downloader_Framework
             }
 
             string output = JsonConvert.SerializeObject(listProfiles);
-
-            using (StreamWriter writetext = new StreamWriter("C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader\\Downloader\\json.txt"))
+            using (StreamWriter writetext = new StreamWriter(profilesJSON))
             {
                 writetext.WriteLine(output);
             }
@@ -189,23 +267,30 @@ namespace Downloader_Framework
         public static Image ConvertSqlToImage(string appName)
         {
             Image image = null;
-            string source = "Data source = 'C:\\Users\\elshi\\Desktop\\Downloader_DB.db'";
-
-            using (var conn = new SqliteConnection(source))
+            try
             {
-                conn.Open();
-                using (SqliteCommand cmd = new SqliteCommand($"Select Icon from AppToDownload where AppName = \"{appName}\"", conn))
+                string source = $"Data source = {database}";
+                using (var conn = new SqliteConnection(source))
                 {
-                    cmd.Connection = conn;
-                    using (SqliteDataReader reader = cmd.ExecuteReader())
+                    conn.Open();
+                    using (SqliteCommand cmd = new SqliteCommand($"Select Icon from AppToDownload where AppName = \"{appName}\"", conn))
                     {
-                        while (reader.Read())
+                        cmd.Connection = conn;
+                        using (SqliteDataReader reader = cmd.ExecuteReader())
                         {
-                            image = MainFrame.MyBytesToImage((byte[])reader["Icon"]);
+                            while (reader.Read())
+                            {
+                                image = MainFrame.MyBytesToImage((byte[])reader["Icon"]);
+                            }
+                            return image;
                         }
-                        return image;
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return image;
             }
         }
     }

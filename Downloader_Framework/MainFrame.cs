@@ -1,25 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
 
 namespace Downloader_Framework
 {
     public partial class MainFrame : Form
     {
-        public static List<UsersProfile> list_UsersProfiles = new List<UsersProfile>();
+        public static List<PorfilePanel> list_UsersProfiles = new List<PorfilePanel>();
         public static List<AppToDownload> list_SelectedApps = new List<AppToDownload>();
         public static List<AppButton> list_AppButtons = new List<AppButton>();
         Connection connection = new Connection();
+
+        public static Color color1 = Color.FromArgb(255, 255, 255);
+        public static Color color2 = Color.FromArgb(147, 184, 250);
+        public static Color color3 = Color.FromArgb(53, 206, 252);
+        public static Color color4 = Color.FromArgb(65, 105, 225);
+        public static Color color5 = Color.FromArgb(0, 0, 205);
+        public static Color color6 = Color.FromArgb(1, 11, 143);
+        
+        
 
         public MainFrame()
         {
@@ -147,6 +153,7 @@ namespace Downloader_Framework
 
         private void btn_CheckCon_Click(object sender, EventArgs e)
         {
+            AppendTextToConsole("Checking connection...");
             Task.Run(() => connection.PingHost());
         }
 
@@ -215,15 +222,18 @@ namespace Downloader_Framework
 
         }
 
-        private void ReadSavedProfiles(List<UsersProfile> listOfProfiles)
+        private void ReadSavedProfiles(List<PorfilePanel> listOfProfiles)
         {
-            if (listOfProfiles.Count > 0)
+            int counter = 0;
+            foreach (PorfilePanel panel in listOfProfiles)
             {
-                foreach (UsersProfile panel in listOfProfiles)
+                if(counter < 5)
                 {
                     flowpnl_YourProfiles.Controls.Add(panel);
                 }
+                counter++;
             }
+            AppendTextToConsole(counter > 0 ? $"{counter} profiles found in json file." : "No profiles found in json file.");
         }
 
         public static void AppendTextToConsole(string message)
@@ -243,8 +253,9 @@ namespace Downloader_Framework
             }
             else
             {
-                list_UsersProfiles.Add(new UsersProfile("", list_SelectedApps));
+                list_UsersProfiles.Add(new PorfilePanel("", list_SelectedApps));
                 flowpnl_YourProfiles.Controls.Add(list_UsersProfiles.Last());
+                AppendTextToConsole($"Created new profile: {list_UsersProfiles.Last().name_Profile}");
             }
         }
 
@@ -253,12 +264,14 @@ namespace Downloader_Framework
             Button button = (Button)sender;
             int id_number = (int)button.Tag;
 
-            UsersProfile profile = list_UsersProfiles.FirstOrDefault(p => p.id_Number == id_number);
+            PorfilePanel profile = list_UsersProfiles.FirstOrDefault(p => p.id_Number == id_number);
             if (profile != null)
             {
                 button.Dispose();
+                AppendTextToConsole($"Removed profile: {profile.name_Profile}");
                 list_UsersProfiles.Remove(profile);
                 profile.Dispose();
+
             }
         }
 
@@ -285,6 +298,7 @@ namespace Downloader_Framework
             }
             UpdateSelectedAppsPanel();
             UpdateSelectedApps();
+            AppendTextToConsole("Cleared all selected apps.");
         }
 
         private void UpdateSelectedAppsPanel()
@@ -337,12 +351,6 @@ namespace Downloader_Framework
             }
             return destImage;
         }
-
-        private void MainFrame_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            connection.WriteJSONFile();
-        }
-
         public static void CompareButtonAndApp(string appName)
         {
             foreach (AppToDownload app in list_SelectedApps.ToList())
@@ -357,6 +365,10 @@ namespace Downloader_Framework
         public static void UpdateSelectedApps()
         {
             lbl_CurApps.Text = $"Selected apps: {list_SelectedApps.Count}";
+        }
+        private void MainFrame_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            connection.WriteJSONFile();
         }
     }
 }
