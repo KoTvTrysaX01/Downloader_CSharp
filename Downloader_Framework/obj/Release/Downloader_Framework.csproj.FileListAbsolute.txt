@@ -82,3 +82,14 @@ C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Fra
 C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\obj\Release\Download.B946039A.Up2Date
 C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\obj\Release\Downloader_Framework.exe
 C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\obj\Release\Downloader_Framework.pdb
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Xamarin.Forms.Core.dll
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Xamarin.Forms.Platform.dll
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Xamarin.Forms.Xaml.dll
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Xamarin.Forms.Core.pdb
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Xamarin.Forms.Core.xml
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Xamarin.Forms.Xaml.pdb
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Xamarin.Forms.Xaml.xml
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Downloader_Framework.exe.manifest
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\bin\Release\Downloader_Framework.application
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\obj\Release\Downloader_Framework.exe.manifest
+C:\Users\elshi\Desktop\Downloader C#\Project\Downloader_Framework\Downloader_Framework\obj\Release\Downloader_Framework.application

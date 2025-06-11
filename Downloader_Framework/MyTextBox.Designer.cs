@@ -36,6 +36,7 @@ namespace Downloader_Framework
             // 
             // textBox1
             // 
+            this.textBox1.ReadOnly = true;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Location = new System.Drawing.Point(7, 7);
@@ -43,6 +44,8 @@ namespace Downloader_Framework
             this.textBox1.Size = new System.Drawing.Size(236, 15);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.ForeColor = Color.Black;
+            this.textBox1.AutoSize = false;
             // 
             // MyTextBox
             // 
@@ -55,6 +58,8 @@ namespace Downloader_Framework
             this.Name = "MyTextBox";
             this.Padding = new System.Windows.Forms.Padding(7);
             this.Size = new System.Drawing.Size(250, 30);
+            this.ForeColor = Color.Black;
+            this.AutoSize = false;
             this.ResumeLayout(false);
             this.PerformLayout();
 

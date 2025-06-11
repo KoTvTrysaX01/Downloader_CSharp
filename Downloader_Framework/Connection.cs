@@ -1,12 +1,9 @@
-﻿using System.Data;
-using System.Text;
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 using System.Net.Sockets;
 using Renci.SshNet;
 using Newtonsoft.Json;
 using Renci.SshNet.Sftp;
 using System.Diagnostics;
-using Downloader_Framework;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -18,8 +15,8 @@ namespace Downloader_Framework
     public class Connection
     {
         static string userName = Environment.UserName;
-        static string database = $@"C:\Users\{userName}\Desktop\Downloader_files\Downloader_DB.db";
-        static string profilesJSON = $@"C:\Users\{userName}\Desktop\Downloader_files\ProfilesJSON.txt";
+        static string database = $@"Downloader_DB.db";
+        static string profilesJSON = $@"ProfilesJSON.txt";
 
         public List<AppToDownload> ReadTable()
         {
@@ -98,14 +95,13 @@ namespace Downloader_Framework
 
         public void DownloadApps(List<AppToDownload> listApps, string SourcePath, bool tryInstall)
         {
+            int Port = 22;
+            string Host = "79.112.50.56";
+            string Username = "vadim";
+            string Password = "123";
+            string RemotePath = "Files/";
             try
             {
-                int Port = 22;
-                string Host = "79.112.50.56";
-                string Username = "vadim";
-                string Password = "123";
-                string RemotePath = "Files/";
-
                 MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
                 {
                     MainFrame.AppendTextToConsole("----------------------------------------------------------");
@@ -120,9 +116,9 @@ namespace Downloader_Framework
                     {
                         client.Connect();
 
-                        MainFrame.lbl_DownloadFile.Invoke(new MethodInvoker(delegate
+                        MainFrame.txtbox_DownloadFile.Invoke(new MethodInvoker(delegate
                         {
-                            MainFrame.lbl_DownloadFile.Text = $"Now downloading: {app.appName}";
+                            MainFrame.txtbox_DownloadFile.Texts = $"Now downloading: {app.appName}";
                         }));
                         string RemoteFilePath = RemotePath + app.fileName;
                         SftpFileAttributes attrs = client.GetAttributes(RemoteFilePath);
@@ -152,15 +148,19 @@ namespace Downloader_Framework
                 {
                     MainFrame.AppendTextToConsole("Session is finished.");
                     MainFrame.AppendTextToConsole("----------------------------------------------------------");
+                    MainFrame.btn_StartDownload.Enabled = true;
                 }));
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                //MessageBox.Show(e.Message);
                 MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
                 {
                     MainFrame.AppendTextToConsole($"Failed to connect.");
+                    MainFrame.AppendTextToConsole("----------------------------------------------------------");
+                    MainFrame.btn_StartDownload.Enabled = true;
                 }));
+                
             }
         }
 
@@ -196,7 +196,7 @@ namespace Downloader_Framework
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
                 MainFrame.richtxtbox_Console.Invoke(new MethodInvoker(delegate
                 {
                     MainFrame.AppendTextToConsole($"Failed to install {app.appName}");
@@ -204,11 +204,11 @@ namespace Downloader_Framework
             }
         }
 
-        public List<PorfilePanel> ReadJSONFile()
+        public List<ProfilePanel> ReadJSONFile()
         {
             try
             {
-                List<PorfilePanel> listPanels = new List<PorfilePanel>();
+                List<ProfilePanel> listPanels = new List<ProfilePanel>();
                 if (File.Exists(profilesJSON))
                 {
                     List<Profile> listProfiles = JsonConvert.DeserializeObject<List<Profile>>(File.ReadAllText(profilesJSON));
@@ -217,7 +217,7 @@ namespace Downloader_Framework
                         foreach (Profile p in listProfiles)
                         {
                             if (p != null) ;
-                            listPanels.Add(new PorfilePanel(p.name, p.apps));
+                            listPanels.Add(new ProfilePanel(p.name, p.apps));
                         }
                     }
                     return listPanels;
@@ -243,7 +243,7 @@ namespace Downloader_Framework
             List<Profile> listProfiles = new List<Profile>();
             List<AppToDownload> listApps = null;
 
-            foreach (PorfilePanel panel in MainFrame.list_UsersProfiles)
+            foreach (ProfilePanel panel in MainFrame.list_UsersProfiles)
             {
                 if (panel != null)
                     listApps = new List<AppToDownload>();

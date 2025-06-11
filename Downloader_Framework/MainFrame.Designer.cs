@@ -82,19 +82,19 @@ namespace Downloader_Framework
             this.lbl_YourProfiles = new System.Windows.Forms.Label();
             this.pnl_Download = new System.Windows.Forms.Panel();
             this.pnl_DownloadProc = new System.Windows.Forms.Panel();
-            this.btn_StartDownload = new Downloader_Framework.MyButton();
+            btn_StartDownload = new System.Windows.Forms.Button();
             lbl_ProgPer = new System.Windows.Forms.Label();
-            lbl_DownloadFile = new System.Windows.Forms.Label();
+            txtbox_DownloadFile = new MyTextBox();
             progbar_DownloadPrc = new System.Windows.Forms.ProgressBar();
             this.pnl_DestFolder = new System.Windows.Forms.Panel();
-            this.lbl_TryInstall = new System.Windows.Forms.Label();
+            this.txtbox_TryInstall = new MyTextBox();
             this.chkbox_TryInstall = new Downloader_Framework.MyToggleButton();
-            this.btn_BrowseFolder = new Downloader_Framework.MyButton();
+            this.btn_BrowseFolder = new System.Windows.Forms.Button();
             this.txtbox_DestFolder = new Downloader_Framework.MyTextBox();
             this.pnl_SelectedApps = new System.Windows.Forms.Panel();
-            this.lbl_SelectedApps = new System.Windows.Forms.Label();
+            this.txtbox_SelectedApps = new MyTextBox();
             this.flowpnl_SelectedApps = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_ClearAll = new Downloader_Framework.MyButton();
+            this.btn_ClearAll = new System.Windows.Forms.Button();
             this.tablepnl_TopPanel.SuspendLayout();
             this.tablepnl_LeftPanel.SuspendLayout();
             this.tablepnl_Console.SuspendLayout();
@@ -123,12 +123,12 @@ namespace Downloader_Framework
             // 
             // tablepnl_TopPanel
             // 
-            this.tablepnl_TopPanel.BackColor = color4;
+            this.tablepnl_TopPanel.BackColor = color6;
             this.tablepnl_TopPanel.ColumnCount = 4;
-            this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.80428F));
-            this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.19572F));
-            this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 314F));
-            this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26));
+            this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69));
+            this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 313F));
+            this.tablepnl_TopPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tablepnl_TopPanel.Controls.Add(this.lbl_Author, 1, 0);
             this.tablepnl_TopPanel.Controls.Add(this.lbl_PrgName, 0, 0);
             this.tablepnl_TopPanel.Controls.Add(lbl_ImageStatus, 3, 0);
@@ -148,33 +148,34 @@ namespace Downloader_Framework
             this.lbl_Author.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_Author.AutoSize = true;
             this.lbl_Author.BackColor = color3;
-            this.lbl_Author.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_Author.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_Author.Font = new System.Drawing.Font("Arial Narrow", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_Author.ForeColor = System.Drawing.Color.Navy;
+            //this.lbl_Author.Font = new System.Drawing.Font("Arial Narrow", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Author.Font = font1;
+            this.lbl_Author.ForeColor = color6;
             this.lbl_Author.Location = new System.Drawing.Point(283, 10);
             this.lbl_Author.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_Author.Name = "lbl_Author";
             this.lbl_Author.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.lbl_Author.Size = new System.Drawing.Size(583, 41);
+            this.lbl_Author.Size = new System.Drawing.Size(583, 50);
             this.lbl_Author.TabIndex = 4;
             this.lbl_Author.Text = "VADIM ELSHIN | DAW 1 | IES DOCTOR BALMIS";
             this.lbl_Author.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Author.Paint += label_Paint;
             // 
             // lbl_PrgName
             // 
             this.lbl_PrgName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_PrgName.AutoSize = true;
-            this.lbl_PrgName.BackColor = color6;
-            this.lbl_PrgName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbl_PrgName.BackColor = color1;
+            this.lbl_PrgName.ForeColor = color6;
+            this.lbl_PrgName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_PrgName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lbl_PrgName.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_PrgName.ForeColor = System.Drawing.Color.White;
+            this.lbl_PrgName.Font = font1;
             this.lbl_PrgName.Location = new System.Drawing.Point(6, 10);
             this.lbl_PrgName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lbl_PrgName.Name = "lbl_PrgName";
             this.lbl_PrgName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.lbl_PrgName.Size = new System.Drawing.Size(265, 41);
+            this.lbl_PrgName.Size = new System.Drawing.Size(265, 50);
             this.lbl_PrgName.TabIndex = 0;
             this.lbl_PrgName.Text = "DOWNLOADER";
             this.lbl_PrgName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -185,27 +186,30 @@ namespace Downloader_Framework
             lbl_ImageStatus.Image = new Bitmap(Properties.Resources.neutral, new System.Drawing.Size(50, 50));
             lbl_ImageStatus.Location = new System.Drawing.Point(1190, 3);
             lbl_ImageStatus.Name = "lbl_ImageStatus";
-            lbl_ImageStatus.Size = new System.Drawing.Size(63, 54);
+            lbl_ImageStatus.Size = new System.Drawing.Size(55, 55);
             lbl_ImageStatus.TabIndex = 3;
             lbl_ImageStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_CheckCon
             // 
             this.btn_CheckCon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_CheckCon.BackColor = color5;
+            this.btn_CheckCon.BackColor = color4;
+            this.btn_CheckCon.ForeColor = color1;
             this.btn_CheckCon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CheckCon.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btn_CheckCon.Font = new System.Drawing.Font("Arial Narrow", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_CheckCon.Font = new Font("Arial", 19, FontStyle.Bold);
             this.btn_CheckCon.ForeColor = System.Drawing.Color.White;
             this.btn_CheckCon.Location = new System.Drawing.Point(881, 6);
             this.btn_CheckCon.Name = "btn_CheckCon";
             this.btn_CheckCon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btn_CheckCon.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.btn_CheckCon.Size = new System.Drawing.Size(296, 48);
+            this.btn_CheckCon.Size = new System.Drawing.Size(309, 43);
             this.btn_CheckCon.TabIndex = 2;
             this.btn_CheckCon.Text = "CHECK CONNECTION";
             this.btn_CheckCon.UseVisualStyleBackColor = false;
             this.btn_CheckCon.Click += btn_CheckCon_Click;
+            this.btn_CheckCon.MouseEnter += FocusOnButton;
+            this.btn_CheckCon.MouseLeave += LeaveButton;
             // 
             // tablepnl_LeftPanel
             // 
@@ -218,7 +222,7 @@ namespace Downloader_Framework
             this.tablepnl_LeftPanel.Controls.Add(this.btn_Apps, 0, 0);
             this.tablepnl_LeftPanel.Controls.Add(this.btn_Download, 0, 4);
             this.tablepnl_LeftPanel.Location = new System.Drawing.Point(14, 93);
-            tablepnl_LeftPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablepnl_LeftPanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tablepnl_LeftPanel.Name = "tablepnl_LeftPanel";
             this.tablepnl_LeftPanel.RowCount = 5;
             this.tablepnl_LeftPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -232,8 +236,9 @@ namespace Downloader_Framework
             // btn_Profiles
             // 
             this.btn_Profiles.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Profiles.Font = new System.Drawing.Font("Arial Narrow", 28F, System.Drawing.FontStyle.Bold);
+            this.btn_Profiles.Font = font2;
             this.btn_Profiles.Location = new System.Drawing.Point(16, 264);
+            this.btn_Profiles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Profiles.Name = "btn_Profiles";
             this.btn_Profiles.Size = new System.Drawing.Size(227, 60);
             this.btn_Profiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -241,12 +246,17 @@ namespace Downloader_Framework
             this.btn_Profiles.Text = "PROFILES";
             this.btn_Profiles.UseVisualStyleBackColor = true;
             this.btn_Profiles.Click += btn_Profiles_Click;
+            this.btn_Profiles.BackColor = color4;
+            this.btn_Profiles.ForeColor = color1;
+            this.btn_Profiles.MouseEnter += FocusOnButton;
+            this.btn_Profiles.MouseLeave += LeaveButton;
             // 
             // btn_Other
             // 
             this.btn_Other.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Other.Font = new System.Drawing.Font("Arial Narrow", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Other.Font = font2;
             this.btn_Other.Location = new System.Drawing.Point(16, 180);
+            this.btn_Other.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Other.Name = "btn_Other";
             this.btn_Other.Size = new System.Drawing.Size(227, 60);
             this.btn_Other.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -254,12 +264,17 @@ namespace Downloader_Framework
             this.btn_Other.Text = "OTHER";
             this.btn_Other.UseVisualStyleBackColor = true;
             this.btn_Other.Click += btn_Other_apps_Click;
+            this.btn_Other.BackColor = color4;
+            this.btn_Other.ForeColor = color1;
+            this.btn_Other.MouseEnter += FocusOnButton;
+            this.btn_Other.MouseLeave += LeaveButton;
             // 
             // btn_Tools
             // 
             this.btn_Tools.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Tools.Font = new System.Drawing.Font("Arial Narrow", 28F, System.Drawing.FontStyle.Bold);
+            this.btn_Tools.Font = font2;
             this.btn_Tools.Location = new System.Drawing.Point(16, 96);
+            this.btn_Tools.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Tools.Name = "btn_Tools";
             this.btn_Tools.Size = new System.Drawing.Size(227, 60);
             this.btn_Tools.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -267,12 +282,16 @@ namespace Downloader_Framework
             this.btn_Tools.Text = "TOOLS";
             this.btn_Tools.UseVisualStyleBackColor = true;
             this.btn_Tools.Click += btn_Tools_Click;
+            this.btn_Tools.BackColor = color4;
+            this.btn_Tools.ForeColor = color1;
+            this.btn_Tools.MouseEnter += FocusOnButton;
+            this.btn_Tools.MouseLeave += LeaveButton;
             // 
             // btn_Apps
             // 
             this.btn_Apps.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Apps.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Apps.Font = new System.Drawing.Font("Arial Narrow", 28F, System.Drawing.FontStyle.Bold);
+            this.btn_Apps.Font = font2;
             this.btn_Apps.Location = new System.Drawing.Point(16, 12);
             this.btn_Apps.Name = "btn_Apps";
             this.btn_Apps.Size = new System.Drawing.Size(227, 60);
@@ -281,12 +300,17 @@ namespace Downloader_Framework
             this.btn_Apps.Text = "APPS";
             this.btn_Apps.UseVisualStyleBackColor = true;
             this.btn_Apps.Click += btn_Apps_Click;
+            this.btn_Apps.BackColor = color4;
+            this.btn_Apps.ForeColor = color1;
+            this.btn_Apps.MouseEnter += FocusOnButton;
+            this.btn_Apps.MouseLeave += LeaveButton;
             // 
             // btn_Download
             // 
             this.btn_Download.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Download.Font = new System.Drawing.Font("Arial Narrow", 28F, System.Drawing.FontStyle.Bold);
+            this.btn_Download.Font = font2;
             this.btn_Download.Location = new System.Drawing.Point(16, 348);
+            this.btn_Download.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Download.Name = "btn_Download";
             this.btn_Download.Size = new System.Drawing.Size(227, 60);
             this.btn_Download.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -294,6 +318,11 @@ namespace Downloader_Framework
             this.btn_Download.Text = "DOWNLOAD";
             this.btn_Download.UseVisualStyleBackColor = true;
             this.btn_Download.Click += btn_Download_Click;
+            this.btn_Download.BackColor = color4;
+            this.btn_Download.ForeColor = color1;
+            this.btn_Download.MouseEnter += FocusOnButton;
+            this.btn_Download.MouseLeave += LeaveButton;
+         
             // 
             // tablepnl_Console
             // 
@@ -304,7 +333,7 @@ namespace Downloader_Framework
             this.tablepnl_Console.Controls.Add(richtxtbox_Console, 0, 1);
             this.tablepnl_Console.Controls.Add(lbl_CurApps, 0, 0);
             this.tablepnl_Console.Location = new System.Drawing.Point(14, 531);
-            this.tablepnl_Console.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tablepnl_Console.Margin = new System.Windows.Forms.Padding(4);
             this.tablepnl_Console.Name = "tablepnl_Console";
             this.tablepnl_Console.RowCount = 2;
             this.tablepnl_Console.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.83502F));
@@ -323,23 +352,28 @@ namespace Downloader_Framework
             richtxtbox_Console.ReadOnly = true;
             richtxtbox_Console.Size = new System.Drawing.Size(252, 217);
             richtxtbox_Console.TabIndex = 1;
+            richtxtbox_Console.BackColor = color6;
+            richtxtbox_Console.ForeColor = color1;
             richtxtbox_Console.Text = "";
+            richtxtbox_Console.BorderStyle = BorderStyle.Fixed3D;
+            richtxtbox_Console.Font = new Font("Arial", 9, FontStyle.Regular);
             // 
             // lbl_CurApps
             // 
             lbl_CurApps.Anchor = System.Windows.Forms.AnchorStyles.None;
-            lbl_CurApps.AutoSize = true;
+            lbl_CurApps.AutoSize = false;
             lbl_CurApps.BackColor = color6;
-            lbl_CurApps.Font = new System.Drawing.Font("Arial", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            lbl_CurApps.Font = new System.Drawing.Font("Arial", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             lbl_CurApps.ForeColor = System.Drawing.Color.White;
             lbl_CurApps.Location = new System.Drawing.Point(0, 1);
-            lbl_CurApps.Margin = new System.Windows.Forms.Padding(0);
+            lbl_CurApps.Margin = new System.Windows.Forms.Padding(4, 4, 4, 0);
             lbl_CurApps.Name = "lbl_CurApps";
             lbl_CurApps.Padding = new System.Windows.Forms.Padding(29, 7, 29, 7);
             lbl_CurApps.Size = new System.Drawing.Size(259, 42);
             lbl_CurApps.TabIndex = 0;
             lbl_CurApps.Text = "Selected apps: 0";
             lbl_CurApps.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lbl_CurApps.Paint += label_Paint;
             // 
             // tabpage_Apps
             // 
@@ -361,6 +395,7 @@ namespace Downloader_Framework
             this.tab_Browsers.Controls.Add(this.flowpnl_Browsers);
             this.tab_Browsers.Location = new System.Drawing.Point(4, 27);
             this.tab_Browsers.Name = "tab_Browsers";
+            this.tab_Browsers.BackColor = color5;
             this.tab_Browsers.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Browsers.Size = new System.Drawing.Size(968, 675);
             this.tab_Browsers.TabIndex = 0;
@@ -371,6 +406,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Browsers.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Browsers.Name = "flowpnl_Browsers";
+            this.flowpnl_Browsers.BackColor = color4;
             this.flowpnl_Browsers.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Browsers.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Browsers.TabIndex = 0;
@@ -380,6 +416,7 @@ namespace Downloader_Framework
             this.tab_Launchers.Controls.Add(this.flowpnl_Launchers);
             this.tab_Launchers.Location = new System.Drawing.Point(4, 27);
             this.tab_Launchers.Name = "tab_Launchers";
+            this.tab_Launchers.BackColor = color5;
             this.tab_Launchers.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Launchers.Size = new System.Drawing.Size(968, 675);
             this.tab_Launchers.TabIndex = 1;
@@ -390,6 +427,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Launchers.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Launchers.Name = "flowpnl_Launchers";
+            this.flowpnl_Launchers.BackColor = color4;
             this.flowpnl_Launchers.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Launchers.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Launchers.TabIndex = 1;
@@ -399,6 +437,7 @@ namespace Downloader_Framework
             this.tab_Media.Controls.Add(this.flowpnl_Media);
             this.tab_Media.Location = new System.Drawing.Point(4, 27);
             this.tab_Media.Name = "tab_Media";
+            this.tab_Media.BackColor = color5;
             this.tab_Media.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Media.Size = new System.Drawing.Size(968, 675);
             this.tab_Media.TabIndex = 2;
@@ -409,6 +448,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Media.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Media.Name = "flowpnl_Media";
+            this.flowpnl_Media.BackColor = color4;
             this.flowpnl_Media.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Media.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Media.TabIndex = 1;
@@ -418,6 +458,7 @@ namespace Downloader_Framework
             this.tab_Communication.Controls.Add(this.flowpnl_Communication);
             this.tab_Communication.Location = new System.Drawing.Point(4, 27);
             this.tab_Communication.Name = "tab_Communication";
+            this.tab_Communication.BackColor = color5;
             this.tab_Communication.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Communication.Size = new System.Drawing.Size(968, 675);
             this.tab_Communication.TabIndex = 3;
@@ -428,6 +469,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Communication.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Communication.Name = "flowpnl_Communication";
+            this.flowpnl_Communication.BackColor = color4;
             this.flowpnl_Communication.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Communication.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Communication.TabIndex = 1;
@@ -437,6 +479,7 @@ namespace Downloader_Framework
             this.tab_Programming.Controls.Add(this.flowpnl_Programming);
             this.tab_Programming.Location = new System.Drawing.Point(4, 27);
             this.tab_Programming.Name = "tab_Programming";
+            this.tab_Programming.BackColor = color5;
             this.tab_Programming.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Programming.Size = new System.Drawing.Size(968, 675);
             this.tab_Programming.TabIndex = 4;
@@ -447,6 +490,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Programming.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Programming.Name = "flowpnl_Programming";
+            this.flowpnl_Programming.BackColor = color4;
             this.flowpnl_Programming.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Programming.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Programming.TabIndex = 1;
@@ -456,6 +500,7 @@ namespace Downloader_Framework
             this.tab_Overview.Controls.Add(this.flowpnl_Overview);
             this.tab_Overview.Location = new System.Drawing.Point(4, 27);
             this.tab_Overview.Name = "tab_Overview";
+            this.tab_Overview.BackColor = color5;
             this.tab_Overview.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Overview.Size = new System.Drawing.Size(968, 675);
             this.tab_Overview.TabIndex = 0;
@@ -466,6 +511,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Overview.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Overview.Name = "flowpnl_Overview";
+            this.flowpnl_Overview.BackColor = color4;
             this.flowpnl_Overview.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Overview.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Overview.TabIndex = 1;
@@ -475,6 +521,7 @@ namespace Downloader_Framework
             this.tab_Tests.Controls.Add(this.flowpnl_Tests);
             this.tab_Tests.Location = new System.Drawing.Point(4, 27);
             this.tab_Tests.Name = "tab_Tests";
+            this.tab_Tests.BackColor = color5;
             this.tab_Tests.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Tests.Size = new System.Drawing.Size(968, 675);
             this.tab_Tests.TabIndex = 1;
@@ -485,6 +532,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Tests.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Tests.Name = "flowpnl_Tests";
+            this.flowpnl_Tests.BackColor = color4;
             this.flowpnl_Tests.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Tests.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Tests.TabIndex = 1;
@@ -494,6 +542,7 @@ namespace Downloader_Framework
             this.tab_Network.Controls.Add(this.flowpnl_Network);
             this.tab_Network.Location = new System.Drawing.Point(4, 27);
             this.tab_Network.Name = "tab_Network";
+            this.tab_Network.BackColor = color5;
             this.tab_Network.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Network.Size = new System.Drawing.Size(968, 675);
             this.tab_Network.TabIndex = 2;
@@ -504,6 +553,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Network.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Network.Name = "flowpnl_Network";
+            this.flowpnl_Network.BackColor = color4;
             this.flowpnl_Network.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Network.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Network.TabIndex = 1;
@@ -513,6 +563,7 @@ namespace Downloader_Framework
             this.tab_OSsAndISOs.Controls.Add(this.flowpnl_OSsAndISOs);
             this.tab_OSsAndISOs.Location = new System.Drawing.Point(4, 27);
             this.tab_OSsAndISOs.Name = "tab_OSsAndISOs";
+            this.tab_OSsAndISOs.BackColor = color5;
             this.tab_OSsAndISOs.Padding = new System.Windows.Forms.Padding(3);
             this.tab_OSsAndISOs.Size = new System.Drawing.Size(968, 675);
             this.tab_OSsAndISOs.TabIndex = 3;
@@ -523,6 +574,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_OSsAndISOs.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_OSsAndISOs.Name = "flowpnl_OSsAndISOs";
+            this.flowpnl_OSsAndISOs.BackColor = color4;
             this.flowpnl_OSsAndISOs.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_OSsAndISOs.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_OSsAndISOs.TabIndex = 1;
@@ -532,6 +584,7 @@ namespace Downloader_Framework
             this.tab_Disk.Controls.Add(this.flowpnl_Disk);
             this.tab_Disk.Location = new System.Drawing.Point(4, 27);
             this.tab_Disk.Name = "tab_Disk";
+            this.tab_Disk.BackColor = color5;
             this.tab_Disk.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Disk.Size = new System.Drawing.Size(968, 675);
             this.tab_Disk.TabIndex = 4;
@@ -542,6 +595,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Disk.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Disk.Name = "flowpnl_Disk";
+            this.flowpnl_Disk.BackColor = color4;
             this.flowpnl_Disk.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Disk.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Disk.TabIndex = 1;
@@ -551,6 +605,7 @@ namespace Downloader_Framework
             this.tab_Protection.Controls.Add(this.flowpnl_Protection);
             this.tab_Protection.Location = new System.Drawing.Point(4, 27);
             this.tab_Protection.Name = "tab_Protection";
+            this.tab_Protection.BackColor = color5;
             this.tab_Protection.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Protection.Size = new System.Drawing.Size(968, 675);
             this.tab_Protection.TabIndex = 5;
@@ -561,6 +616,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Protection.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Protection.Name = "flowpnl_Protection";
+            this.flowpnl_Protection.BackColor = color4;
             this.flowpnl_Protection.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Protection.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Protection.TabIndex = 1;
@@ -570,6 +626,7 @@ namespace Downloader_Framework
             this.tab_OtherApps.Controls.Add(this.flowpnl_OtherApps);
             this.tab_OtherApps.Location = new System.Drawing.Point(4, 27);
             this.tab_OtherApps.Name = "tab_OtherApps";
+            this.tab_OtherApps.BackColor = color5;
             this.tab_OtherApps.Padding = new System.Windows.Forms.Padding(3);
             this.tab_OtherApps.Size = new System.Drawing.Size(968, 675);
             this.tab_OtherApps.TabIndex = 0;
@@ -580,6 +637,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_OtherApps.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_OtherApps.Name = "flowpnl_OtherApps";
+            this.flowpnl_OtherApps.BackColor = color4;
             this.flowpnl_OtherApps.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_OtherApps.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_OtherApps.TabIndex = 1;
@@ -589,6 +647,7 @@ namespace Downloader_Framework
             this.tab_Archives.Controls.Add(this.flowpnl_Archives);
             this.tab_Archives.Location = new System.Drawing.Point(4, 27);
             this.tab_Archives.Name = "tab_Archives";
+            this.tab_Archives.BackColor = color5;
             this.tab_Archives.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Archives.Size = new System.Drawing.Size(968, 675);
             this.tab_Archives.TabIndex = 1;
@@ -599,6 +658,7 @@ namespace Downloader_Framework
             // 
             this.flowpnl_Archives.Location = new System.Drawing.Point(6, 6);
             this.flowpnl_Archives.Name = "flowpnl_Archives";
+            this.flowpnl_Archives.BackColor = color4;
             this.flowpnl_Archives.Padding = new System.Windows.Forms.Padding(5);
             this.flowpnl_Archives.Size = new System.Drawing.Size(956, 663);
             this.flowpnl_Archives.TabIndex = 1;
@@ -639,23 +699,30 @@ namespace Downloader_Framework
             this.pnl_Profiles.Controls.Add(this.lbl_YourProfiles);
             this.pnl_Profiles.Location = new System.Drawing.Point(295, 93);
             this.pnl_Profiles.Name = "pnl_Profiles";
+            this.pnl_Profiles.BackColor = color6;
             this.pnl_Profiles.Size = new System.Drawing.Size(976, 706);
             this.pnl_Profiles.TabIndex = 0;
             this.pnl_Profiles.Visible = false;
             // 
             // btn_AddProfile
             // 
-            this.btn_AddProfile.Location = new System.Drawing.Point(775, 11);
+            this.btn_AddProfile.Location = new System.Drawing.Point(661, 7);
             this.btn_AddProfile.Name = "btn_AddProfile";
-            this.btn_AddProfile.Size = new System.Drawing.Size(186, 43);
+            this.btn_AddProfile.Font = font1;
+            this.btn_AddProfile.Size = new System.Drawing.Size(300, 50);
             this.btn_AddProfile.TabIndex = 5;
-            this.btn_AddProfile.Text = "Add new profile";
             this.btn_AddProfile.UseVisualStyleBackColor = true;
+            this.btn_AddProfile.Text = "ADD NEW PROFILE";
+            this.btn_AddProfile.BackColor = color4;
+            this.btn_AddProfile.ForeColor = color1;
             this.btn_AddProfile.Click += AddProfile_btn_Click;
+            this.btn_AddProfile.MouseEnter += FocusOnButton;
+            this.btn_AddProfile.MouseLeave += LeaveButton;
+
             // 
             // flowpnl_YourProfiles
             // 
-            this.flowpnl_YourProfiles.BackColor = System.Drawing.Color.Yellow;
+            this.flowpnl_YourProfiles.BackColor = color4;
             this.flowpnl_YourProfiles.Location = new System.Drawing.Point(12, 67);
             this.flowpnl_YourProfiles.Name = "flowpnl_YourProfiles";
             this.flowpnl_YourProfiles.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
@@ -664,17 +731,20 @@ namespace Downloader_Framework
             // 
             // lbl_YourProfiles
             // 
-            this.lbl_YourProfiles.BackColor = System.Drawing.Color.White;
+            this.lbl_YourProfiles.BackColor = color3;
             this.lbl_YourProfiles.Location = new System.Drawing.Point(12, 11);
+            this.lbl_YourProfiles.Font = font2;
+            this.lbl_YourProfiles.ForeColor = color6;
             this.lbl_YourProfiles.Name = "lbl_YourProfiles";
-            this.lbl_YourProfiles.Size = new System.Drawing.Size(217, 43);
+            this.lbl_YourProfiles.Size = new System.Drawing.Size(420, 43);
             this.lbl_YourProfiles.TabIndex = 0;
             this.lbl_YourProfiles.Text = "YOUR PROFILES";
             this.lbl_YourProfiles.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_YourProfiles.Paint += label_Paint;
             // 
             // pnl_Download
             // 
-            this.pnl_Download.BackColor = System.Drawing.Color.White;
+            this.pnl_Download.BackColor = color6;
             this.pnl_Download.Controls.Add(this.pnl_DownloadProc);
             this.pnl_Download.Controls.Add(this.pnl_DestFolder);
             this.pnl_Download.Controls.Add(this.pnl_SelectedApps);
@@ -685,137 +755,105 @@ namespace Downloader_Framework
             this.pnl_Download.TabIndex = 0;
             this.pnl_Download.Visible = false;
             // 
-            // pnl_DownloadProc
+            // pnl_SelectedApps
             // 
-            this.pnl_DownloadProc.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnl_DownloadProc.Controls.Add(this.btn_StartDownload);
-            this.pnl_DownloadProc.Controls.Add(lbl_ProgPer);
-            this.pnl_DownloadProc.Controls.Add(lbl_DownloadFile);
-            this.pnl_DownloadProc.Controls.Add(progbar_DownloadPrc);
-            this.pnl_DownloadProc.Location = new System.Drawing.Point(13, 478);
-            this.pnl_DownloadProc.Name = "pnl_DownloadProc";
-            this.pnl_DownloadProc.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
-            this.pnl_DownloadProc.Size = new System.Drawing.Size(950, 215);
-            this.pnl_DownloadProc.TabIndex = 1;
+            this.pnl_SelectedApps.BackColor = color4;
+            this.pnl_SelectedApps.Controls.Add(this.txtbox_SelectedApps);
+            this.pnl_SelectedApps.Controls.Add(this.flowpnl_SelectedApps);
+            this.pnl_SelectedApps.Controls.Add(this.btn_ClearAll);
+            this.pnl_SelectedApps.Location = new System.Drawing.Point(13, 13);
+            this.pnl_SelectedApps.Name = "pnl_SelectedApps";
+            this.pnl_SelectedApps.Padding = new System.Windows.Forms.Padding(10);
+            this.pnl_SelectedApps.Size = new System.Drawing.Size(950, 216);
+            this.pnl_SelectedApps.TabIndex = 0;
             // 
-            // btn_StartDownload
+            // txtbox_SelectedApps
             // 
-            this.btn_StartDownload.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_StartDownload.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_StartDownload.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_StartDownload.BorderRadius = 20;
-            this.btn_StartDownload.BorderSize = 0;
-            this.btn_StartDownload.FlatAppearance.BorderSize = 0;
-            this.btn_StartDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_StartDownload.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_StartDownload.ForeColor = System.Drawing.Color.White;
-            this.btn_StartDownload.Location = new System.Drawing.Point(350, 135);
-            this.btn_StartDownload.Name = "btn_StartDownload";
-            this.btn_StartDownload.Size = new System.Drawing.Size(250, 62);
-            this.btn_StartDownload.TabIndex = 8;
-            this.btn_StartDownload.Text = "DOWNLOAD";
-            this.btn_StartDownload.TextColor = System.Drawing.Color.White;
-            this.btn_StartDownload.UseVisualStyleBackColor = false;
-            this.btn_StartDownload.Click += btn_StartDownload_Click;
+            this.txtbox_SelectedApps.BackColor = color1;
+            this.txtbox_SelectedApps.BorderColor = color5;
+            this.txtbox_SelectedApps.Font = font4;
+            this.txtbox_SelectedApps.Location = new System.Drawing.Point(477, 10);
+            this.txtbox_SelectedApps.Name = "txtbox_SelectedApps";
+            this.txtbox_SelectedApps.Size = new System.Drawing.Size(200, 25);
+            this.txtbox_SelectedApps.TabIndex = 3;
+            this.txtbox_SelectedApps.Texts = "Selected apps:";
             // 
-            // lbl_ProgPer
+            // flowpnl_SelectedApps
             // 
-            lbl_ProgPer.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            lbl_ProgPer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            lbl_ProgPer.Location = new System.Drawing.Point(442, 103);
-            lbl_ProgPer.Name = "lbl_ProgPer";
-            lbl_ProgPer.Size = new System.Drawing.Size(70, 23);
-            lbl_ProgPer.TabIndex = 9;
-            lbl_ProgPer.Text = "0%";
-            lbl_ProgPer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flowpnl_SelectedApps.BackColor = color2;
+            this.flowpnl_SelectedApps.Location = new System.Drawing.Point(207, 60);
+            this.flowpnl_SelectedApps.Name = "flowpnl_SelectedApps";
+            this.flowpnl_SelectedApps.Size = new System.Drawing.Size(728, 130);
+            this.flowpnl_SelectedApps.TabIndex = 2;
+            this.flowpnl_SelectedApps.Paint += panel_Paint;
             // 
-            // lbl_DownloadFile
+            // btn_ClearAll
             // 
-            lbl_DownloadFile.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            lbl_DownloadFile.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            lbl_DownloadFile.Location = new System.Drawing.Point(250, 10);
-            lbl_DownloadFile.Name = "lbl_DownloadFile";
-            lbl_DownloadFile.Size = new System.Drawing.Size(450, 36);
-            lbl_DownloadFile.TabIndex = 8;
-            lbl_DownloadFile.Text = "Now downloading: \r\n";
-            lbl_DownloadFile.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_ClearAll.BackColor = color5;
+            this.btn_ClearAll.ForeColor = color1;
+            this.btn_ClearAll.FlatAppearance.BorderSize = 0;
+            this.btn_ClearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ClearAll.Font = font1;
+            this.btn_ClearAll.ForeColor = System.Drawing.Color.White;
+            this.btn_ClearAll.Location = new System.Drawing.Point(11, 92);
+            this.btn_ClearAll.Name = "btn_ClearAll";
+            this.btn_ClearAll.Size = new System.Drawing.Size(185, 63);
+            this.btn_ClearAll.TabIndex = 1;
+            this.btn_ClearAll.Text = "CLEAR ALL";
+            this.btn_ClearAll.TextAlign = ContentAlignment.MiddleCenter;
+            this.btn_ClearAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ClearAll.FlatAppearance.BorderColor = color1;
+            this.btn_ClearAll.FlatAppearance.BorderSize = 2;
+            this.btn_ClearAll.Click += btn_ClearAll_Click;
             // 
-            // progbar_DownloadPrc
+            // txtbox_TryInstall
             // 
-            progbar_DownloadPrc.Location = new System.Drawing.Point(13, 52);
-            progbar_DownloadPrc.Name = "progbar_DownloadPrc";
-            progbar_DownloadPrc.Size = new System.Drawing.Size(924, 48);
-            progbar_DownloadPrc.TabIndex = 0;
-            // 
-            // pnl_DestFolder
-            // 
-            this.pnl_DestFolder.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnl_DestFolder.Controls.Add(this.lbl_TryInstall);
-            this.pnl_DestFolder.Controls.Add(this.chkbox_TryInstall);
-            this.pnl_DestFolder.Controls.Add(this.btn_BrowseFolder);
-            this.pnl_DestFolder.Controls.Add(this.txtbox_DestFolder);
-            this.pnl_DestFolder.Location = new System.Drawing.Point(13, 244);
-            this.pnl_DestFolder.Name = "pnl_DestFolder";
-            this.pnl_DestFolder.Padding = new System.Windows.Forms.Padding(10);
-            this.pnl_DestFolder.Size = new System.Drawing.Size(950, 215);
-            this.pnl_DestFolder.TabIndex = 1;
-            this.btn_BrowseFolder.Click += btn_BrowseFolder_Click;
-            // 
-            // lbl_TryInstall
-            // 
-            this.lbl_TryInstall.AutoSize = true;
-            this.lbl_TryInstall.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lbl_TryInstall.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_TryInstall.Location = new System.Drawing.Point(13, 124);
-            this.lbl_TryInstall.Name = "lbl_TryInstall";
-            this.lbl_TryInstall.Size = new System.Drawing.Size(663, 40);
-            this.lbl_TryInstall.TabIndex = 7;
-            this.lbl_TryInstall.Text = "Do you wish to automatically install selected apps?\r\n";
-            this.lbl_TryInstall.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtbox_TryInstall.BackColor = color1;
+            this.txtbox_TryInstall.BorderColor = color5;
+            this.txtbox_TryInstall.Font = font4;
+            this.txtbox_TryInstall.Location = new System.Drawing.Point(13, 100);
+            this.txtbox_TryInstall.Name = "txtbox_TryInstall";
+            this.txtbox_TryInstall.Size = new System.Drawing.Size(600, 1);
+            this.txtbox_TryInstall.TabIndex = 7;
+            this.txtbox_TryInstall.Texts = "Do you wish to automatically install selected apps?\r\n";
             // 
             // chkbox_TryInstall
             // 
             this.chkbox_TryInstall.AutoSize = true;
-            this.chkbox_TryInstall.Location = new System.Drawing.Point(768, 124);
-            this.chkbox_TryInstall.MinimumSize = new System.Drawing.Size(90, 35);
+            this.chkbox_TryInstall.Location = new System.Drawing.Point(660, 102);
+            this.chkbox_TryInstall.MinimumSize = new System.Drawing.Size(90, 40);
             this.chkbox_TryInstall.Name = "chkbox_TryInstall";
-            this.chkbox_TryInstall.OffBackColor = System.Drawing.Color.Gray;
-            this.chkbox_TryInstall.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.chkbox_TryInstall.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.chkbox_TryInstall.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.chkbox_TryInstall.OffBackColor = color6;
+            this.chkbox_TryInstall.OffToggleColor = color3;
+            this.chkbox_TryInstall.OnBackColor = color3;
+            this.chkbox_TryInstall.OnToggleColor = color6;
             this.chkbox_TryInstall.Size = new System.Drawing.Size(105, 40);
             this.chkbox_TryInstall.TabIndex = 5;
             this.chkbox_TryInstall.UseVisualStyleBackColor = true;
             // 
             // btn_BrowseFolder
             // 
-            this.btn_BrowseFolder.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_BrowseFolder.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_BrowseFolder.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_BrowseFolder.BorderRadius = 20;
-            this.btn_BrowseFolder.BorderSize = 0;
+            this.btn_BrowseFolder.BackColor = color5;
+            this.btn_BrowseFolder.ForeColor = color1;
             this.btn_BrowseFolder.FlatAppearance.BorderSize = 0;
             this.btn_BrowseFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_BrowseFolder.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_BrowseFolder.ForeColor = System.Drawing.Color.White;
-            this.btn_BrowseFolder.Location = new System.Drawing.Point(13, 13);
+            this.btn_BrowseFolder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_BrowseFolder.Font = font1;
+            this.btn_BrowseFolder.Location = new System.Drawing.Point(13, 20);
             this.btn_BrowseFolder.Name = "btn_BrowseFolder";
             this.btn_BrowseFolder.Size = new System.Drawing.Size(172, 50);
             this.btn_BrowseFolder.TabIndex = 3;
-            this.btn_BrowseFolder.Text = "Browse";
-            this.btn_BrowseFolder.TextColor = System.Drawing.Color.White;
-            this.btn_BrowseFolder.UseVisualStyleBackColor = false;
+            this.btn_BrowseFolder.Text = "BROWSE";
+            this.btn_BrowseFolder.FlatAppearance.BorderColor = color1;
+            this.btn_BrowseFolder.FlatAppearance.BorderSize = 2;
             // 
             // txtbox_DestFolder
             // 
-            this.txtbox_DestFolder.BackColor = System.Drawing.SystemColors.Window;
-            this.txtbox_DestFolder.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtbox_DestFolder.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtbox_DestFolder.BackColor = color1;
+            this.txtbox_DestFolder.BorderColor = color5;
             this.txtbox_DestFolder.BorderSize = 2;
-            this.txtbox_DestFolder.Enabled = false;
-            this.txtbox_DestFolder.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtbox_DestFolder.ForeColor = System.Drawing.Color.DimGray;
-            this.txtbox_DestFolder.Location = new System.Drawing.Point(215, 19);
+            this.txtbox_DestFolder.Font = font4;
+            this.txtbox_DestFolder.Location = new System.Drawing.Point(215, 26);
             this.txtbox_DestFolder.Multiline = false;
             this.txtbox_DestFolder.Name = "txtbox_DestFolder";
             this.txtbox_DestFolder.Padding = new System.Windows.Forms.Padding(7);
@@ -825,57 +863,81 @@ namespace Downloader_Framework
             this.txtbox_DestFolder.Texts = "";
             this.txtbox_DestFolder.UnderlinedStyle = false;
             // 
-            // pnl_SelectedApps
+            // pnl_DestFolder
             // 
-            this.pnl_SelectedApps.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnl_SelectedApps.Controls.Add(this.lbl_SelectedApps);
-            this.pnl_SelectedApps.Controls.Add(this.flowpnl_SelectedApps);
-            this.pnl_SelectedApps.Controls.Add(this.btn_ClearAll);
-            this.pnl_SelectedApps.Location = new System.Drawing.Point(13, 13);
-            this.pnl_SelectedApps.Name = "pnl_SelectedApps";
-            this.pnl_SelectedApps.Padding = new System.Windows.Forms.Padding(10);
-            this.pnl_SelectedApps.Size = new System.Drawing.Size(950, 216);
-            this.pnl_SelectedApps.TabIndex = 0;
+            this.pnl_DestFolder.BackColor = color4;
+            this.pnl_DestFolder.Controls.Add(this.txtbox_TryInstall);
+            this.pnl_DestFolder.Controls.Add(this.chkbox_TryInstall);
+            this.pnl_DestFolder.Controls.Add(this.btn_BrowseFolder);
+            this.pnl_DestFolder.Controls.Add(this.txtbox_DestFolder);
+            this.pnl_DestFolder.Location = new System.Drawing.Point(13, 244);
+            this.pnl_DestFolder.Name = "pnl_DestFolder";
+            this.pnl_DestFolder.Padding = new System.Windows.Forms.Padding(10);
+            this.pnl_DestFolder.Size = new System.Drawing.Size(950, 165);
+            this.pnl_DestFolder.TabIndex = 1;
+            this.btn_BrowseFolder.Click += btn_BrowseFolder_Click;
             // 
-            // lbl_SelectedApps
+            // btn_StartDownload
             // 
-            this.lbl_SelectedApps.AutoSize = true;
-            this.lbl_SelectedApps.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lbl_SelectedApps.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_SelectedApps.Location = new System.Drawing.Point(511, 10);
-            this.lbl_SelectedApps.Name = "lbl_SelectedApps";
-            this.lbl_SelectedApps.Size = new System.Drawing.Size(132, 25);
-            this.lbl_SelectedApps.TabIndex = 3;
-            this.lbl_SelectedApps.Text = "Selected apps:";
-            this.lbl_SelectedApps.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            btn_StartDownload.BackColor = color5;
+            btn_StartDownload.ForeColor = color1;
+            btn_StartDownload.FlatAppearance.BorderSize = 0;
+            btn_StartDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_StartDownload.Font = font2;
+            btn_StartDownload.ForeColor = System.Drawing.Color.White;
+            btn_StartDownload.Location = new System.Drawing.Point(350, 185);
+            btn_StartDownload.Name = "btn_StartDownload";
+            btn_StartDownload.Size = new System.Drawing.Size(250, 70);
+            btn_StartDownload.TabIndex = 8;
+            btn_StartDownload.Text = "DOWNLOAD";
+            btn_StartDownload.TextAlign = ContentAlignment.MiddleCenter;
+            btn_StartDownload.Cursor = System.Windows.Forms.Cursors.Hand;
+            btn_StartDownload.FlatAppearance.BorderColor = color1;
+            btn_StartDownload.FlatAppearance.BorderSize = 2;
+            btn_StartDownload.Click += btn_StartDownload_Click;
             // 
-            // flowpnl_SelectedApps
+            // lbl_ProgPer
             // 
-            this.flowpnl_SelectedApps.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.flowpnl_SelectedApps.Location = new System.Drawing.Point(207, 47);
-            this.flowpnl_SelectedApps.Name = "flowpnl_SelectedApps";
-            this.flowpnl_SelectedApps.Size = new System.Drawing.Size(728, 156);
-            this.flowpnl_SelectedApps.TabIndex = 2;
+            lbl_ProgPer.ForeColor = color1;
+            lbl_ProgPer.Font = new Font("Arial", 12, FontStyle.Regular);
+            lbl_ProgPer.Location = new System.Drawing.Point(442, 140);
+            lbl_ProgPer.Name = "lbl_ProgPer";
+            lbl_ProgPer.Size = new System.Drawing.Size(70, 23);
+            lbl_ProgPer.TabIndex = 9;
+            lbl_ProgPer.Text = "0%";
+            lbl_ProgPer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_ClearAll
+            // txtbox_DownloadFile
             // 
-            this.btn_ClearAll.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_ClearAll.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_ClearAll.BorderColor = System.Drawing.Color.Violet;
-            this.btn_ClearAll.BorderRadius = 20;
-            this.btn_ClearAll.BorderSize = 2;
-            this.btn_ClearAll.FlatAppearance.BorderSize = 0;
-            this.btn_ClearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ClearAll.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_ClearAll.ForeColor = System.Drawing.Color.White;
-            this.btn_ClearAll.Location = new System.Drawing.Point(13, 91);
-            this.btn_ClearAll.Name = "btn_ClearAll";
-            this.btn_ClearAll.Size = new System.Drawing.Size(172, 63);
-            this.btn_ClearAll.TabIndex = 1;
-            this.btn_ClearAll.Text = "Clear all";
-            this.btn_ClearAll.TextColor = System.Drawing.Color.White;
-            this.btn_ClearAll.UseVisualStyleBackColor = false;
-            this.btn_ClearAll.Click += btn_ClearAll_Click;
+            txtbox_DownloadFile.BackColor = color1;
+            txtbox_DownloadFile.BorderColor = color5;
+            txtbox_DownloadFile.Enabled = false;
+            txtbox_DownloadFile.Font = font4;
+            txtbox_DownloadFile.Location = new System.Drawing.Point(220, 15);
+            txtbox_DownloadFile.Name = "txtbox_DownloadFile";
+            txtbox_DownloadFile.Size = new System.Drawing.Size(480, 36);
+            txtbox_DownloadFile.TabIndex = 8;
+            txtbox_DownloadFile.Texts = "Now downloading: \r\n";
+            // 
+            // progbar_DownloadPrc
+            // 
+            progbar_DownloadPrc.Location = new System.Drawing.Point(13, 85);
+            progbar_DownloadPrc.Name = "progbar_DownloadPrc";
+            progbar_DownloadPrc.Size = new System.Drawing.Size(924, 48);
+            progbar_DownloadPrc.TabIndex = 0;
+            // 
+            // pnl_DownloadProc
+            // 
+            this.pnl_DownloadProc.BackColor = color4;
+            this.pnl_DownloadProc.Controls.Add(btn_StartDownload);
+            this.pnl_DownloadProc.Controls.Add(lbl_ProgPer);
+            this.pnl_DownloadProc.Controls.Add(txtbox_DownloadFile);
+            this.pnl_DownloadProc.Controls.Add(progbar_DownloadPrc);
+            this.pnl_DownloadProc.Location = new System.Drawing.Point(13, 424);
+            this.pnl_DownloadProc.Name = "pnl_DownloadProc";
+            this.pnl_DownloadProc.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.pnl_DownloadProc.Size = new System.Drawing.Size(950, 269);
+            this.pnl_DownloadProc.TabIndex = 1;
             // 
             // MainFrame
             // 
@@ -895,6 +957,7 @@ namespace Downloader_Framework
             this.Name = "MainFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Downloader";
+            this.Icon = Icon.ExtractAssociatedIcon("E:\\Загрузки\\downloading.ico");
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.FormClosing += MainFrame_FormClosing;
             this.tablepnl_TopPanel.ResumeLayout(false);
@@ -981,13 +1044,13 @@ namespace Downloader_Framework
         private Panel pnl_SelectedApps;
         private MyTextBox txtbox_DestFolder;
         private FlowLayoutPanel flowpnl_SelectedApps;
-        private MyButton btn_ClearAll;
+        private System.Windows.Forms.Button btn_ClearAll;
         private MyToggleButton chkbox_TryInstall;
-        private MyButton btn_BrowseFolder;
-        private Label lbl_SelectedApps;
-        private Label lbl_TryInstall;
-        private MyButton btn_StartDownload;
-        public static Label lbl_DownloadFile;
+        private System.Windows.Forms.Button btn_BrowseFolder;
+        private MyTextBox txtbox_SelectedApps;
+        private MyTextBox txtbox_TryInstall;
+        public static System.Windows.Forms.Button btn_StartDownload;
+        public static MyTextBox txtbox_DownloadFile;
         public static Label lbl_CurApps;
         public static Label lbl_ImageStatus;
         public static System.Windows.Forms.ProgressBar progbar_DownloadPrc;

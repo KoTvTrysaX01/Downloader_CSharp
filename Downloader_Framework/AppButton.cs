@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Downloader_Framework
@@ -23,15 +19,17 @@ namespace Downloader_Framework
             this.ImageAlign = ContentAlignment.TopCenter;
             this.Click += appButton_Click;
             this.FlatStyle = FlatStyle.Flat;
-            this.FlatAppearance.BorderColor = Color.Green;
-            this.FlatAppearance.BorderSize = 1;
+            this.BackColor = MainFrame.color2;
+            this.Cursor = Cursors.Hand;
+            this.FlatAppearance.BorderColor = MainFrame.color1;
+            this.FlatAppearance.BorderSize = 2;
 
         }
         private void appButton_Click(object sender, EventArgs e)
         {
             if (this.Tag == "copied")
             {
-                this.FlatAppearance.BorderColor = Color.Green;
+                this.BackColor = MainFrame.color2;
                 this.Tag = "";
                 MainFrame.CompareButtonAndApp(appToDownload.appName);
                 MainFrame.UpdateSelectedApps();
@@ -40,14 +38,14 @@ namespace Downloader_Framework
             else if (!MainFrame.list_SelectedApps.Contains(this.appToDownload))
             {
                 MainFrame.list_SelectedApps.Add(this.appToDownload);
-                this.FlatAppearance.BorderColor = Color.Red;
+                this.BackColor = MainFrame.color7;
                 MainFrame.UpdateSelectedApps();
             }
 
             else
             {
                 MainFrame.list_SelectedApps.Remove(this.appToDownload);
-                this.FlatAppearance.BorderColor = Color.Green;
+                this.BackColor = MainFrame.color2;
                 MainFrame.UpdateSelectedApps();
             }
         }

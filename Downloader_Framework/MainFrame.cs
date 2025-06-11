@@ -5,6 +5,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,7 +14,7 @@ namespace Downloader_Framework
 {
     public partial class MainFrame : Form
     {
-        public static List<PorfilePanel> list_UsersProfiles = new List<PorfilePanel>();
+        public static List<ProfilePanel> list_UsersProfiles = new List<ProfilePanel>();
         public static List<AppToDownload> list_SelectedApps = new List<AppToDownload>();
         public static List<AppButton> list_AppButtons = new List<AppButton>();
         Connection connection = new Connection();
@@ -24,6 +25,12 @@ namespace Downloader_Framework
         public static Color color4 = Color.FromArgb(65, 105, 225);
         public static Color color5 = Color.FromArgb(0, 0, 205);
         public static Color color6 = Color.FromArgb(1, 11, 143);
+        public static Color color7 = Color.FromArgb(250, 118, 102);
+
+        public static Font font1 = new Font("Arial", 20, FontStyle.Bold);
+        public static Font font2 = new Font("Arial", 25, FontStyle.Bold);
+        public static Font font3 = new Font("Arial", 8, FontStyle.Regular);
+        public static Font font4 = new Font("Segou UI", 18, FontStyle.Regular);
         
         
 
@@ -169,6 +176,7 @@ namespace Downloader_Framework
             }
             else
             {
+                btn_StartDownload.Enabled = false;
                 Task.Run(() => connection.DownloadApps(MainFrame.list_SelectedApps, txtbox_DestFolder.Texts, chkbox_TryInstall.Checked));
             }
 
@@ -219,13 +227,12 @@ namespace Downloader_Framework
             pnl_Profiles.Visible = false;
             pnl_Download.Visible = true;
             UpdateSelectedAppsPanel();
-
         }
 
-        private void ReadSavedProfiles(List<PorfilePanel> listOfProfiles)
+        private void ReadSavedProfiles(List<ProfilePanel> listOfProfiles)
         {
             int counter = 0;
-            foreach (PorfilePanel panel in listOfProfiles)
+            foreach (ProfilePanel panel in listOfProfiles)
             {
                 if(counter < 5)
                 {
@@ -253,18 +260,19 @@ namespace Downloader_Framework
             }
             else
             {
-                list_UsersProfiles.Add(new PorfilePanel("", list_SelectedApps));
+                list_UsersProfiles.Add(new ProfilePanel("", list_SelectedApps));
                 flowpnl_YourProfiles.Controls.Add(list_UsersProfiles.Last());
-                AppendTextToConsole($"Created new profile: {list_UsersProfiles.Last().name_Profile}");
+                AppendTextToConsole($"Created new profile with: {list_SelectedApps.Count} apps.");
             }
         }
 
         static public void DeleteProfile_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            int id_number = (int)button.Tag;
-
-            PorfilePanel profile = list_UsersProfiles.FirstOrDefault(p => p.id_Number == id_number);
+            var id_number = button.Tag;
+            //int id_number = (int)button.Tag;
+                                                                        //p.id_number
+            ProfilePanel profile = list_UsersProfiles.FirstOrDefault(p => p.Tag == id_number);
             if (profile != null)
             {
                 button.Dispose();
@@ -290,15 +298,23 @@ namespace Downloader_Framework
 
         private void btn_ClearAll_Click(object sender, EventArgs e)
         {
-            list_SelectedApps.Clear();
-
-            foreach (AppButton appButton in list_AppButtons)
+            if(list_SelectedApps.Count != 0)
             {
-                appButton.FlatAppearance.BorderColor = Color.Green;
+                list_SelectedApps.Clear();
+
+                foreach (AppButton appButton in list_AppButtons)
+                {
+                    appButton.BackColor = MainFrame.color2;
+                }
+                UpdateSelectedAppsPanel();
+                UpdateSelectedApps();
+                AppendTextToConsole("Cleared all selected apps.");
             }
-            UpdateSelectedAppsPanel();
-            UpdateSelectedApps();
-            AppendTextToConsole("Cleared all selected apps.");
+            else
+            {
+                AppendTextToConsole("Nothing to clear");
+            }
+            
         }
 
         private void UpdateSelectedAppsPanel()
@@ -310,7 +326,6 @@ namespace Downloader_Framework
                 lbl.AutoSize = false;
                 lbl.Size = new Size(20, 20);
                 lbl.FlatStyle = FlatStyle.Standard;
-                lbl.BackColor = Color.Red;
                 lbl.Image = ResizeImage(app.GetIcon(), 20, 20);
                 lbl.Margin = new Padding(3);
 
@@ -366,6 +381,42 @@ namespace Downloader_Framework
         {
             lbl_CurApps.Text = $"Selected apps: {list_SelectedApps.Count}";
         }
+
+        public void label_Paint(object sender, PaintEventArgs e)
+        {
+            Label l = sender as Label;
+            ControlPaint.DrawBorder(e.Graphics, l.DisplayRectangle, color1, ButtonBorderStyle.Solid);
+        }
+
+        private void panel_Paint(object sender, PaintEventArgs e)
+        {
+            FlowLayoutPanel p = sender as FlowLayoutPanel;
+            ControlPaint.DrawBorder(e.Graphics, p.ClientRectangle, color5, ButtonBorderStyle.Solid);
+        }
+
+
+
+        private void FocusOnButton(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            button.BackColor = color2;
+        }
+        private void LeaveButton(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            button.BackColor = color4;
+        }
+
+        public static string GenerateRandomNumbersForID()
+        {
+            Random rnd = new Random();
+            int num1 = rnd.Next(100);
+            int num2 = rnd.Next(100);
+            int num3 = rnd.Next(100);
+            return $"{num1}{num2}{num3}";
+
+        }
+ 
         private void MainFrame_FormClosing(object sender, FormClosingEventArgs e)
         {
             connection.WriteJSONFile();
