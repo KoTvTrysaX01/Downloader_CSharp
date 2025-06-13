@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Renci.SshNet;
+using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Downloader_Framework
@@ -11,9 +13,16 @@ namespace Downloader_Framework
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrame());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainFrame());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

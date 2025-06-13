@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Downloader_Framework
 {
+
+    //Contains information to write JSON file and create ProfilePanel
     public class Profile
     {
         public string name;

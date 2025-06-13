@@ -16,6 +16,8 @@ namespace Downloader_Framework
         public List<AppToDownload> list_ProfileApps = new List<AppToDownload>();
         public string name_Profile;
         public int id_Number;
+
+        //Contains panel with images of saved apps, buttons and textbox.
         public ProfilePanel(string nameProfile, List<AppToDownload> listApps)
         {
             try
@@ -33,7 +35,6 @@ namespace Downloader_Framework
             {
                 MessageBox.Show(ex.Message);
             }
-
 
             this.id_Number = MainFrame.list_UsersProfiles.Any() ? MainFrame.list_UsersProfiles.Max(item => item.id_Number) + 1 : 0;
             this.name_Profile = string.IsNullOrWhiteSpace(nameProfile) ? "#Profile " + id_Number : nameProfile;
@@ -112,12 +113,14 @@ namespace Downloader_Framework
             flowpnl_ProfilesApps.ResumeLayout();
         }
 
+        //When text of textbox is changed it will be saved as profile's name.
         private void Profile_name_TextChanged(object sender, EventArgs e)
         {
             TextBox texbox = (TextBox)sender;
             this.name_Profile = texbox.Text;
         }
 
+        //Clears current list of selected apps and replaces it with profile's saved apps.
         private void CopyPrf_btn_Click(object sender, EventArgs e)
         {
             MainFrame.list_SelectedApps.Clear();
@@ -150,11 +153,14 @@ namespace Downloader_Framework
             MainFrame.AppendTextToConsole("Copied profile's apps.");
         }
 
+        //Change style of a button with the focus.
         private void FocusOnButton(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;
             button.BackColor = MainFrame.color2;
         }
+
+        //Changes the style of a button when focus is lost.
         private void LeaveButton(object sender, EventArgs e)
         {
             System.Windows.Forms.Button button = (System.Windows.Forms.Button)sender;

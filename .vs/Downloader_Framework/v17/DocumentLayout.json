@@ -3,28 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\MainFrame.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:Downloader_Framework\\MainFrame.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|c:\\users\\elshi\\desktop\\downloader c#\\project\\downloader_framework\\downloader_framework\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\downloader_framework\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\mainframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\MainFrame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:Downloader_Framework\\MainFrame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\downloader_framework\\mainframe.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\mainframe.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|c:\\users\\elshi\\desktop\\downloader c#\\project\\downloader_framework\\downloader_framework\\profilepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\profilepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\downloader_framework\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\downloader_framework\\appbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\appbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\Profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:Downloader_Framework\\Profile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\downloader_framework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|c:\\users\\elshi\\desktop\\downloader c#\\project\\downloader_framework\\downloader_framework\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|c:\\users\\elshi\\desktop\\downloader c#\\project\\downloader_framework\\downloader_framework\\appbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\appbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|c:\\users\\elshi\\desktop\\downloader c#\\project\\downloader_framework\\downloader_framework\\mytextbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\mytextbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|c:\\users\\elshi\\desktop\\downloader c#\\project\\downloader_framework\\downloader_framework\\profilepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:downloader_framework\\profilepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\AppButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{757ABED2-A28C-4CA8-A7CE-6DBFFF2ADDAB}|Downloader_Framework\\Downloader_Framework.csproj|solutionrelative:Downloader_Framework\\AppButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,31 +54,95 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
+              "Title": "ProfilePanel.cs",
+              "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\ProfilePanel.cs",
+              "RelativeDocumentMoniker": "Downloader_Framework\\ProfilePanel.cs",
+              "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\ProfilePanel.cs",
+              "RelativeToolTip": "Downloader_Framework\\ProfilePanel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T11:24:21.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ProfilePanel.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\ProfilePanel.cs",
+              "RelativeDocumentMoniker": "Downloader_Framework\\ProfilePanel.cs",
+              "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\ProfilePanel.cs [Design]",
+              "RelativeToolTip": "Downloader_Framework\\ProfilePanel.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T11:24:18.428Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MyTextBox.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\MyTextBox.cs",
+              "RelativeDocumentMoniker": "Downloader_Framework\\MyTextBox.cs",
+              "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\MyTextBox.cs [Design]",
+              "RelativeToolTip": "Downloader_Framework\\MyTextBox.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T11:23:14.986Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppButton.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\AppButton.cs",
+              "RelativeDocumentMoniker": "Downloader_Framework\\AppButton.cs",
+              "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\AppButton.cs [Design]",
+              "RelativeToolTip": "Downloader_Framework\\AppButton.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-13T11:21:42.673Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\App.config",
+              "RelativeDocumentMoniker": "Downloader_Framework\\App.config",
+              "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\App.config",
+              "RelativeToolTip": "Downloader_Framework\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-13T11:21:40.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "AppButton.cs",
               "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\AppButton.cs",
               "RelativeDocumentMoniker": "Downloader_Framework\\AppButton.cs",
               "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\AppButton.cs",
               "RelativeToolTip": "Downloader_Framework\\AppButton.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAIwBcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAwwBwAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-10T09:48:15.367Z"
+              "WhenOpened": "2025-06-10T09:48:15.367Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "MainFrame.Designer.cs",
               "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\MainFrame.Designer.cs",
               "RelativeDocumentMoniker": "Downloader_Framework\\MainFrame.Designer.cs",
               "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\MainFrame.Designer.cs",
               "RelativeToolTip": "Downloader_Framework\\MainFrame.Designer.cs",
-              "ViewState": "AgIAAJcDAAAAAAAAAAAowLwDAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAOwDAAAAAAAAAAAAAAMEAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T10:38:38.795Z"
+              "WhenOpened": "2025-06-09T10:38:38.795Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -68,43 +152,46 @@
               "RelativeDocumentMoniker": "Downloader_Framework\\Program.cs",
               "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\Program.cs",
               "RelativeToolTip": "Downloader_Framework\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T11:09:39.011Z"
+              "WhenOpened": "2025-06-09T11:09:39.011Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Profile.cs",
               "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\Profile.cs",
               "RelativeDocumentMoniker": "Downloader_Framework\\Profile.cs",
               "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\Profile.cs",
               "RelativeToolTip": "Downloader_Framework\\Profile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T11:02:18.631Z"
+              "WhenOpened": "2025-06-09T11:02:18.631Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainFrame.cs",
               "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\MainFrame.cs",
               "RelativeDocumentMoniker": "Downloader_Framework\\MainFrame.cs",
               "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\MainFrame.cs",
               "RelativeToolTip": "Downloader_Framework\\MainFrame.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB0AAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAMABAAAAAAAAAAA7wNMBAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-09T10:38:32.488Z"
+              "WhenOpened": "2025-06-09T10:38:32.488Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Connection.cs",
               "DocumentMoniker": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\Connection.cs",
               "RelativeDocumentMoniker": "Downloader_Framework\\Connection.cs",
               "ToolTip": "C:\\Users\\elshi\\Desktop\\Downloader C#\\Project\\Downloader_Framework\\Downloader_Framework\\Connection.cs",
               "RelativeToolTip": "Downloader_Framework\\Connection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-09T10:47:58.813Z",
               "EditorCaption": ""

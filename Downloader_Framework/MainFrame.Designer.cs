@@ -88,7 +88,9 @@ namespace Downloader_Framework
             progbar_DownloadPrc = new System.Windows.Forms.ProgressBar();
             this.pnl_DestFolder = new System.Windows.Forms.Panel();
             this.txtbox_TryInstall = new MyTextBox();
+            this.txtbox_UpdateAll = new MyTextBox();
             this.chkbox_TryInstall = new Downloader_Framework.MyToggleButton();
+            this.chkbox_UpdateAll = new Downloader_Framework.MyToggleButton();
             this.btn_BrowseFolder = new System.Windows.Forms.Button();
             this.txtbox_DestFolder = new Downloader_Framework.MyTextBox();
             this.pnl_SelectedApps = new System.Windows.Forms.Panel();
@@ -149,7 +151,6 @@ namespace Downloader_Framework
             this.lbl_Author.AutoSize = true;
             this.lbl_Author.BackColor = color3;
             this.lbl_Author.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            //this.lbl_Author.Font = new System.Drawing.Font("Arial Narrow", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_Author.Font = font1;
             this.lbl_Author.ForeColor = color6;
             this.lbl_Author.Location = new System.Drawing.Point(283, 10);
@@ -388,7 +389,7 @@ namespace Downloader_Framework
             this.tabpage_Apps.SelectedIndex = 0;
             this.tabpage_Apps.Size = new System.Drawing.Size(976, 706);
             this.tabpage_Apps.TabIndex = 3;
-            this.tabpage_Apps.Visible = false;
+            //this.tabpage_Apps.Visible = false;
             // 
             // tab_Browsers
             // 
@@ -750,7 +751,7 @@ namespace Downloader_Framework
             this.pnl_Download.Controls.Add(this.pnl_SelectedApps);
             this.pnl_Download.Location = new System.Drawing.Point(295, 93);
             this.pnl_Download.Name = "pnl_Download";
-            this.pnl_Download.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
+            this.pnl_Download.Padding = new System.Windows.Forms.Padding(10);
             this.pnl_Download.Size = new System.Drawing.Size(976, 706);
             this.pnl_Download.TabIndex = 0;
             this.pnl_Download.Visible = false;
@@ -764,7 +765,7 @@ namespace Downloader_Framework
             this.pnl_SelectedApps.Location = new System.Drawing.Point(13, 13);
             this.pnl_SelectedApps.Name = "pnl_SelectedApps";
             this.pnl_SelectedApps.Padding = new System.Windows.Forms.Padding(10);
-            this.pnl_SelectedApps.Size = new System.Drawing.Size(950, 216);
+            this.pnl_SelectedApps.Size = new System.Drawing.Size(950, 203);
             this.pnl_SelectedApps.TabIndex = 0;
             // 
             // txtbox_SelectedApps
@@ -817,6 +818,17 @@ namespace Downloader_Framework
             this.txtbox_TryInstall.TabIndex = 7;
             this.txtbox_TryInstall.Texts = "Do you wish to automatically install selected apps?\r\n";
             // 
+            // txtbox_UpdateAll
+            // 
+            this.txtbox_UpdateAll.BackColor = color1;
+            this.txtbox_UpdateAll.BorderColor = color5;
+            this.txtbox_UpdateAll.Font = font4;
+            this.txtbox_UpdateAll.Location = new System.Drawing.Point(13, 175);
+            this.txtbox_UpdateAll.Name = "txtbox_TryInstall";
+            this.txtbox_UpdateAll.Size = new System.Drawing.Size(600, 1);
+            this.txtbox_UpdateAll.TabIndex = 7;
+            this.txtbox_UpdateAll.Texts = "Do you want to update all apps using winget?\r\n";
+            // 
             // chkbox_TryInstall
             // 
             this.chkbox_TryInstall.AutoSize = true;
@@ -830,6 +842,23 @@ namespace Downloader_Framework
             this.chkbox_TryInstall.Size = new System.Drawing.Size(105, 40);
             this.chkbox_TryInstall.TabIndex = 5;
             this.chkbox_TryInstall.UseVisualStyleBackColor = true;
+            this.chkbox_TryInstall.Click += chkbox_TryInstall_Click;
+            // 
+            // chkbox_UpdateAll
+            // 
+            this.chkbox_UpdateAll.AutoSize = true;
+            this.chkbox_UpdateAll.Location = new System.Drawing.Point(660, 177);
+            this.chkbox_UpdateAll.MinimumSize = new System.Drawing.Size(90, 40);
+            this.chkbox_UpdateAll.Name = "chkbox_TryInstall";
+            this.chkbox_UpdateAll.OffBackColor = Color.DarkGray;
+            this.chkbox_UpdateAll.OffToggleColor = Color.Gray;
+            this.chkbox_UpdateAll.OnBackColor = color3;
+            this.chkbox_UpdateAll.OnToggleColor = color6;
+            this.chkbox_UpdateAll.Size = new System.Drawing.Size(105, 40);
+            this.chkbox_UpdateAll.TabIndex = 5;
+            this.chkbox_UpdateAll.UseVisualStyleBackColor = true;
+            this.chkbox_UpdateAll.Enabled = false;
+            this.chkbox_UpdateAll.Click += chkbox_UpdateAll_Click;
             // 
             // btn_BrowseFolder
             // 
@@ -853,7 +882,7 @@ namespace Downloader_Framework
             this.txtbox_DestFolder.BorderColor = color5;
             this.txtbox_DestFolder.BorderSize = 2;
             this.txtbox_DestFolder.Font = font4;
-            this.txtbox_DestFolder.Location = new System.Drawing.Point(215, 26);
+            this.txtbox_DestFolder.Location = new System.Drawing.Point(215, 22);
             this.txtbox_DestFolder.Multiline = false;
             this.txtbox_DestFolder.Name = "txtbox_DestFolder";
             this.txtbox_DestFolder.Padding = new System.Windows.Forms.Padding(7);
@@ -867,13 +896,15 @@ namespace Downloader_Framework
             // 
             this.pnl_DestFolder.BackColor = color4;
             this.pnl_DestFolder.Controls.Add(this.txtbox_TryInstall);
+            this.pnl_DestFolder.Controls.Add(this.txtbox_UpdateAll);
             this.pnl_DestFolder.Controls.Add(this.chkbox_TryInstall);
+            this.pnl_DestFolder.Controls.Add(this.chkbox_UpdateAll);
             this.pnl_DestFolder.Controls.Add(this.btn_BrowseFolder);
             this.pnl_DestFolder.Controls.Add(this.txtbox_DestFolder);
-            this.pnl_DestFolder.Location = new System.Drawing.Point(13, 244);
+            this.pnl_DestFolder.Location = new System.Drawing.Point(13, 223);
             this.pnl_DestFolder.Name = "pnl_DestFolder";
             this.pnl_DestFolder.Padding = new System.Windows.Forms.Padding(10);
-            this.pnl_DestFolder.Size = new System.Drawing.Size(950, 165);
+            this.pnl_DestFolder.Size = new System.Drawing.Size(950, 240);
             this.pnl_DestFolder.TabIndex = 1;
             this.btn_BrowseFolder.Click += btn_BrowseFolder_Click;
             // 
@@ -885,9 +916,9 @@ namespace Downloader_Framework
             btn_StartDownload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btn_StartDownload.Font = font2;
             btn_StartDownload.ForeColor = System.Drawing.Color.White;
-            btn_StartDownload.Location = new System.Drawing.Point(350, 185);
+            btn_StartDownload.Location = new System.Drawing.Point(350, 150);
             btn_StartDownload.Name = "btn_StartDownload";
-            btn_StartDownload.Size = new System.Drawing.Size(250, 70);
+            btn_StartDownload.Size = new System.Drawing.Size(250, 60);
             btn_StartDownload.TabIndex = 8;
             btn_StartDownload.Text = "DOWNLOAD";
             btn_StartDownload.TextAlign = ContentAlignment.MiddleCenter;
@@ -900,7 +931,7 @@ namespace Downloader_Framework
             // 
             lbl_ProgPer.ForeColor = color1;
             lbl_ProgPer.Font = new Font("Arial", 12, FontStyle.Regular);
-            lbl_ProgPer.Location = new System.Drawing.Point(442, 140);
+            lbl_ProgPer.Location = new System.Drawing.Point(442, 123);
             lbl_ProgPer.Name = "lbl_ProgPer";
             lbl_ProgPer.Size = new System.Drawing.Size(70, 23);
             lbl_ProgPer.TabIndex = 9;
@@ -913,15 +944,15 @@ namespace Downloader_Framework
             txtbox_DownloadFile.BorderColor = color5;
             txtbox_DownloadFile.Enabled = false;
             txtbox_DownloadFile.Font = font4;
-            txtbox_DownloadFile.Location = new System.Drawing.Point(220, 15);
+            txtbox_DownloadFile.Location = new System.Drawing.Point(220, 10);
             txtbox_DownloadFile.Name = "txtbox_DownloadFile";
-            txtbox_DownloadFile.Size = new System.Drawing.Size(480, 36);
+            txtbox_DownloadFile.Size = new System.Drawing.Size(480, 35);
             txtbox_DownloadFile.TabIndex = 8;
             txtbox_DownloadFile.Texts = "Now downloading: \r\n";
             // 
             // progbar_DownloadPrc
             // 
-            progbar_DownloadPrc.Location = new System.Drawing.Point(13, 85);
+            progbar_DownloadPrc.Location = new System.Drawing.Point(13, 65);
             progbar_DownloadPrc.Name = "progbar_DownloadPrc";
             progbar_DownloadPrc.Size = new System.Drawing.Size(924, 48);
             progbar_DownloadPrc.TabIndex = 0;
@@ -933,10 +964,10 @@ namespace Downloader_Framework
             this.pnl_DownloadProc.Controls.Add(lbl_ProgPer);
             this.pnl_DownloadProc.Controls.Add(txtbox_DownloadFile);
             this.pnl_DownloadProc.Controls.Add(progbar_DownloadPrc);
-            this.pnl_DownloadProc.Location = new System.Drawing.Point(13, 424);
+            this.pnl_DownloadProc.Location = new System.Drawing.Point(13, 473);
             this.pnl_DownloadProc.Name = "pnl_DownloadProc";
             this.pnl_DownloadProc.Padding = new System.Windows.Forms.Padding(9, 9, 9, 9);
-            this.pnl_DownloadProc.Size = new System.Drawing.Size(950, 269);
+            this.pnl_DownloadProc.Size = new System.Drawing.Size(950, 220);
             this.pnl_DownloadProc.TabIndex = 1;
             // 
             // MainFrame
@@ -957,8 +988,10 @@ namespace Downloader_Framework
             this.Name = "MainFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Downloader";
-            this.Icon = Icon.ExtractAssociatedIcon("E:\\Загрузки\\downloading.ico");
+            this.Icon = myIcon;
+            this.MaximizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.FormClosing += MainFrame_FormClosing;
             this.tablepnl_TopPanel.ResumeLayout(false);
             this.tablepnl_TopPanel.PerformLayout();
@@ -989,22 +1022,31 @@ namespace Downloader_Framework
             this.pnl_SelectedApps.ResumeLayout(false);
             this.pnl_SelectedApps.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
+        //TopPanel
         private TableLayoutPanel tablepnl_TopPanel;
-        private Label lbl_Author;
         private Label lbl_PrgName;
+        private Label lbl_Author;
         private System.Windows.Forms.Button btn_CheckCon;
+        public static Label lbl_ImageStatus;
+
+        //LeftPanel
         private TableLayoutPanel tablepnl_LeftPanel;
         private System.Windows.Forms.Button btn_Apps;
-        private System.Windows.Forms.Button btn_Download;
-        private System.Windows.Forms.Button btn_Profiles;
-        private System.Windows.Forms.Button btn_Other;
         private System.Windows.Forms.Button btn_Tools;
+        private System.Windows.Forms.Button btn_Other;
+        private System.Windows.Forms.Button btn_Profiles;
+        private System.Windows.Forms.Button btn_Download;
+
+        //ConsolePanel
         private TableLayoutPanel tablepnl_Console;
+        public static RichTextBox richtxtbox_Console;
+        public static Label lbl_CurApps;
+
+        //RightTabsControl
         private TabControl tabpage_Apps;
         private TabControl tabpage_Tools;
         private TabControl tabpage_Other;
@@ -1034,10 +1076,14 @@ namespace Downloader_Framework
         private FlowLayoutPanel flowpnl_OtherApps;
         private TabPage tab_Archives;
         private FlowLayoutPanel flowpnl_Archives;
+
+        //ProfilePanel
         private Panel pnl_Profiles;
         private System.Windows.Forms.Button btn_AddProfile;
         private FlowLayoutPanel flowpnl_YourProfiles;
         private Label lbl_YourProfiles;
+
+        //DownloadPanel
         private Panel pnl_Download;
         private Panel pnl_DownloadProc;
         private Panel pnl_DestFolder;
@@ -1046,16 +1092,15 @@ namespace Downloader_Framework
         private FlowLayoutPanel flowpnl_SelectedApps;
         private System.Windows.Forms.Button btn_ClearAll;
         private MyToggleButton chkbox_TryInstall;
+        private MyToggleButton chkbox_UpdateAll;
         private System.Windows.Forms.Button btn_BrowseFolder;
         private MyTextBox txtbox_SelectedApps;
         private MyTextBox txtbox_TryInstall;
+        private MyTextBox txtbox_UpdateAll;
         public static System.Windows.Forms.Button btn_StartDownload;
         public static MyTextBox txtbox_DownloadFile;
-        public static Label lbl_CurApps;
-        public static Label lbl_ImageStatus;
         public static System.Windows.Forms.ProgressBar progbar_DownloadPrc;
         public static Label lbl_ProgPer;
-        public static RichTextBox richtxtbox_Console;
     }
 }
 

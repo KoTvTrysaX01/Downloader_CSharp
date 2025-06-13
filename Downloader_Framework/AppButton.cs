@@ -23,8 +23,10 @@ namespace Downloader_Framework
             this.Cursor = Cursors.Hand;
             this.FlatAppearance.BorderColor = MainFrame.color1;
             this.FlatAppearance.BorderSize = 2;
-
         }
+
+        //Adds app to selected apps list unless it was already pressed or was copied from profile's list.
+        //In those cases app will be removed from the list.
         private void appButton_Click(object sender, EventArgs e)
         {
             if (this.Tag == "copied")
